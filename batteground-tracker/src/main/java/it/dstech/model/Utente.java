@@ -11,6 +11,7 @@ public class Utente {
 	@Id
 	private String username;
 	private String password;
+	private String ruolo;
 	 @OneToMany
 	 private List<Partita>partite;
 	public Utente() {
@@ -37,6 +38,12 @@ public class Utente {
 	@Override
 	public String toString() {
 		return "Utente [username=" + username + ", password=" + password + ", partite=" + partite + "]";
+	}
+	public String getRuolo() {
+		return ruolo;
+	}
+	public void setRuolo(String ruolo) {
+		this.ruolo = ruolo;
 	}
 	 
 	 

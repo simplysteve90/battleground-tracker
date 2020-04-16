@@ -25,9 +25,9 @@ public class AccessoUtente extends HttpServlet {
 		EntityManager em = emf.createEntityManager();
 		Service service = new Service(em);
 		HttpSession session = req.getSession();
-		String username = (String) session.getAttribute("username");
-		String password = (String) session.getAttribute("password");
-		String action = (String) session.getAttribute("action");
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String action = req.getParameter("action");
 		if(action.equals("1")) {
 			if(service.checkEsistenzaUtente(username, password)) {
 				session.setAttribute("username", username);

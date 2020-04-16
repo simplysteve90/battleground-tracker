@@ -17,11 +17,11 @@ public class Service {
 	}
 
 	public boolean checkEsistenzaUtente(String username, String password) {
-		Query createQuery = em.createQuery("select (u.username, u.password) from Utente u where u.username = :x");
-		createQuery.setParameter(1, username);
-		String usernameUtente = (String) createQuery.setParameter("username", username).getSingleResult();
-		String passwordUtente = (String) createQuery.setParameter("password", password).getSingleResult();
-		if (username.equals(usernameUtente) && password.equals(passwordUtente)) {
+		Query createQuery = em.createQuery("select u from Utente u where u.username = :x and u.password= :y");
+		createQuery.setParameter("x", username);
+		createQuery.setParameter("y", password);
+		 Utente u= (Utente) createQuery.getSingleResult();
+		if (u != null) {
 			return true;
 		}return false;
 	}

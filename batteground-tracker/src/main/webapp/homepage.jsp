@@ -8,8 +8,15 @@
 <link rel="stylesheet" type="text/css" href="static/default.css">
 </head>
 <body>
-<form action= "ciao" method="post">
-<button type="submit">REGISTRATI</button>
+<form action= "accesso" method="post">
+
+<input type="text" name="username" >
+<input type="password" name="password" >
+
+<button type="submit" value="1" name="action">ACCEDI</button>
+<button type="submit" value="2" name="action">REGISTRATI</button>
+
+
 </form>
 
 </body>
