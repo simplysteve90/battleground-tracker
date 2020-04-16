@@ -4,10 +4,10 @@ body {
 }
 button{
 	background-image: url("../media/banner.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	font-size: 16px;
-	padding: 40px;
+	background-size: cover;
+	padding: 8px 4px;
+	font-size: 22px;
 	border: 0px;
+	
 }
 
