@@ -1,4 +1,13 @@
-body{
-	background-image: url("media/sfondo.jpg");
+body {
+	background-image: url("../media/sfondo.jpg");
 	background-size: cover;
 }
+button{
+	background-image: url("../media/banner.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	padding: 40px;
+	border: 0px;
+}
+

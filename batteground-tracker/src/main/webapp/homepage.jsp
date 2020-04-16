@@ -8,6 +8,9 @@
 <link rel="stylesheet" type="text/css" href="static/default.css">
 </head>
 <body>
+<form action= "ciao" method="post">
+<button type="submit">REGISTRATI</button>
+</form>
 
 </body>
 </html>
