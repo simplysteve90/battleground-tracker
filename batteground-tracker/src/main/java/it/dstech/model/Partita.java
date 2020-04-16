@@ -14,8 +14,8 @@ public class Partita {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String composition;
-	@OneToMany
-	private List<Eroe>eroi;
+	private String eroe;
+	private String note;
 	public Partita() {
 	}
 	public long getId() {
@@ -24,21 +24,24 @@ public class Partita {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public List<Eroe> getEroi() {
-		return eroi;
-	}
-	public void setEroi(List<Eroe> eroi) {
-		this.eroi = eroi;
-	}
-	@Override
-	public String toString() {
-		return "Partita [id=" + id + ", composition=" + composition + ", eroi=" + eroi + "]";
-	}
 	public String getComposition() {
 		return composition;
 	}
 	public void setComposition(String composition) {
 		this.composition = composition;
 	}
-
+	public String getEroe() {
+		return eroe;
+	}
+	public void setEroe(String eroe) {
+		this.eroe = eroe;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
+	
+	
 }
