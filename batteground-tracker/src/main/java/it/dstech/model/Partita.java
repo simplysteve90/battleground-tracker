@@ -16,6 +16,8 @@ public class Partita {
 	private String composition;
 	private String eroe;
 	private String note;
+	private int posizione;
+	private int punteggio;
 	public Partita() {
 	}
 	public long getId() {
@@ -41,6 +43,23 @@ public class Partita {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+	public int getPosizione() {
+		return posizione;
+	}
+	public void setPosizione(int posizione) {
+		this.posizione = posizione;
+	}
+	public int getPunteggio() {
+		return punteggio;
+	}
+	public void setPunteggio(int punteggio) {
+		this.punteggio = punteggio;
+	}
+	@Override
+	public String toString() {
+		return "Partita [id=" + id + ", composition=" + composition + ", eroe=" + eroe + ", note=" + note
+				+ ", posizione=" + posizione + ", punteggio=" + punteggio + "]";
 	}
 	
 	

@@ -12,6 +12,7 @@ public class Utente {
 	private String username;
 	private String password;
 	private String ruolo;
+	private String rating;
 	 @OneToMany
 	 private List<Partita>partite;
 	public Utente() {
@@ -44,6 +45,12 @@ public class Utente {
 	}
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
+	}
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 	 
 	 

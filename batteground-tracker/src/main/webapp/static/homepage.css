@@ -1,0 +1,19 @@
+.container{
+	
+}
+.colonnasinistra{
+	background-image: url('https://i.pinimg.com/236x/8f/09/ac/8f09ac464fa2366858e797a1f5b0065c--paint-texture-d-texture.jpg');
+	backgroud-sizze: contain;
+  float: left;
+  width: 30%;
+  height: 1000px;
+ 
+}
+.colonnadestra{
+	background-image: url('https://i.pinimg.com/236x/8f/09/ac/8f09ac464fa2366858e797a1f5b0065c--paint-texture-d-texture.jpg');
+	backgroud-sizze: contain;
+	float: left;
+	width: 70%;
+	  height: 100%;
+	text-align: center;
+}
