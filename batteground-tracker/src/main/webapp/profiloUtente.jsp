@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="scelta" method="post">
+<%String path = request.getContextPath(); %>
+<form action="<%=path%>/utente/scelta" method="post">
 <button type="submit" name="action" value="1">Aggiungi Partita</button>
 <button type="submit" name="action" value="2">Lista Partite</button>
 <button type="submit" name="action" value="3">Statistiche Eroi</button>

@@ -7,5 +7,11 @@
 	<welcome-file-list>  
    <welcome-file>homepage.jsp</welcome-file>  
   </welcome-file-list>  
+  
+	<filter-mapping>
+		<filter-name>filtroUtente</filter-name>
+		<url-pattern />
+	</filter-mapping>
+
 </web-app>
 	

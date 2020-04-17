@@ -30,9 +30,14 @@ public class AccessoUtente extends HttpServlet {
 		String action = req.getParameter("action");
 		if(action.equals("1")) {
 			if(service.checkEsistenzaUtente(username, password)) {
-				session.setAttribute("username", username);
-				session.setAttribute("password", password);
-				req.getRequestDispatcher("profiloUtente.jsp").forward(req, resp);
+				if(service.checkRuolo(username)) {
+					session.setAttribute("username", username);
+					req.getRequestDispatcher("profiloAdmin.jsp").forward(req, resp);
+				}else {
+					session.setAttribute("username", username);
+					session.setAttribute("password", password);
+					req.getRequestDispatcher("/profiloUtente.jsp").forward(req, resp);
+				}
 			}else {
 				req.setAttribute("messaggio", "Utente inesistente");
 				req.getRequestDispatcher("home").forward(req, resp);

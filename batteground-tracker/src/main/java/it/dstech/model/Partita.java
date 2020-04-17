@@ -7,12 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Partita {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	private String usernameUtente;
 	private String composition;
 	private String eroe;
 	private String note;
@@ -55,6 +57,13 @@ public class Partita {
 	}
 	public void setPunteggio(int punteggio) {
 		this.punteggio = punteggio;
+	}
+	
+	public String getUsernameUtente() {
+		return usernameUtente;
+	}
+	public void setUsernameUtente(String usernameUtente) {
+		this.usernameUtente = usernameUtente;
 	}
 	@Override
 	public String toString() {

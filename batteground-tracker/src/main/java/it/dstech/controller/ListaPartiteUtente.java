@@ -1,44 +1,34 @@
 package it.dstech.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.dstech.model.Partita;
 import it.dstech.service.Service;
 
-@WebServlet(urlPatterns = "/registrazione")
-public class Registrazione extends HttpServlet {
+public class ListaPartiteUtente extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
-		long rating = Long.parseLong(req.getParameter("rating"));
-		HttpSession session = req.getSession();
 		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
 		EntityManager em = emf.createEntityManager();
-		Service service= new Service(em);
-		if(!service.checkRegistrazione(username)) {
-			service.creazioneUtente(username,password, rating);
-			session.setAttribute("username", username);
-			req.getRequestDispatcher("profiloUtente.jsp").forward(req, resp);
-		}else {
-			req.setAttribute("messaggio", "Username gia' in uno");
-			req.getRequestDispatcher("registrazione.jsp").forward(req, resp);
+		HttpSession session = req.getSession();
+		Service service = new Service(em);
+		String username = (String) session.getAttribute("username");
+		List<Partita> stampaListaPartite = service.stampaListaPartite(username);
+		req.setAttribute("listaPartiteUtente", stampaListaPartite);
+		req.getRequestDispatcher("partiteUtente.jsp").forward(req, resp);
 	}
-
 	
-		
-	}
-
 }
