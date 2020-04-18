@@ -11,7 +11,19 @@ body {
 	background-repeat: no-repeat;
 	text-align: center;
 }
-input[type=text], input[type=password]  {
+.select{
+	width: 10%;
+	padding: 12px 20px;
+	margin: 05px 0;
+	display: inline-block;
+	border: 2px solid white;
+	box-sizing: border-box;
+	background-color: #edcda8;
+	border-radius: 5px;
+}
+
+
+input[type=text], input[type=password], input[type= number]  {
 	width: 20%;
 	padding: 12px 20px;
 	margin: 05px 0;

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
