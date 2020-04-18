@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,25 +7,20 @@
 <title>Benvenuto</title>
 
 <style>
-<%@ include file="/static/homepage.css" %>
+<%@include file="/static/homepage.css" %>
 </style>
 </head>
 <body>
-
-<div class="colonnasinistra">
-<form action= "accesso" method="post">
-<input type="text" name="username" >
-<input type="password" name="password" >
-<button type="submit" value="1" name="action">ACCEDI</button>
-<button type="submit" value="2" name="action">REGISTRATI</button>
-</form>
-</div>
-<div class="colonnadestra">
-<h1>CIAO</h1>
-<br>
-<br><br><br><br><br><br><br><br>
-</div>
-
-
+<div id="scritta"></div>
+<div id="rotate"></div>
+		<form action="accesso" method="post">
+		<label for="username" class="label"><b>Username</b></label><br>
+			<input type="text" name="username" placeholder="Inserisci l'username"><br>
+			<label for="password" class="label"><b>Password</b></label><br>
+			 <input type="password" name="password" placeholder="Inserisci la password"><br>
+			<button type="submit" value="1" class="pulsante" name="action"><b>ACCEDI</b></button>
+			<button type="submit" class="pulsante" value="2" name="action"><b>REGISTRATI</b></button><br>
+		</form>
+	
 </body>
 </html>

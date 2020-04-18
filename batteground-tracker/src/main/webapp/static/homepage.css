@@ -1,19 +1,84 @@
-.container{
-	
+
+html {
+	height: 100%;
 }
-.colonnasinistra{
-	background-image: url('https://i.pinimg.com/236x/8f/09/ac/8f09ac464fa2366858e797a1f5b0065c--paint-texture-d-texture.jpg');
-	backgroud-sizze: contain;
-  float: left;
-  width: 30%;
-  height: 1000px;
- 
-}
-.colonnadestra{
-	background-image: url('https://i.pinimg.com/236x/8f/09/ac/8f09ac464fa2366858e797a1f5b0065c--paint-texture-d-texture.jpg');
-	backgroud-sizze: contain;
-	float: left;
-	width: 70%;
-	  height: 100%;
+
+body {
+	min-height: 100%;
+	height: 100%;
+	background-image: url("https://images4.alphacoders.com/102/1028991.jpg");
+	background-size:cover; 
+	background-repeat: no-repeat;
 	text-align: center;
+}
+input[type=text], input[type=password]  {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 05px 0;
+	display: inline-block;
+	border: 2px solid white;
+	box-sizing: border-box;
+	background-color: #edcda8;
+	border-radius: 5px;
+}
+#scritta{
+	height: 30%;
+	width: 100%;
+	background-image: url("https://bit.ly/2VjZuAX");
+	background-repeat: no-repeat;
+	background-size:40%;
+	background-position: center;
+}
+button {
+	width:9.8%;
+	height: 74px;
+	
+	padding: 20px 25px;
+	text-align: center;
+	display: inline-block;
+	margin: 10px 2px;
+	cursor: pointer;
+	border-radius: 13px;
+}
+.pulsante{
+	background-color: black;
+background-image: url("https://bit.ly/34PBqsS");
+background-size: 100%;
+background-position: 180px 70px;
+}
+.pulsante:hover{
+	 transform: translateY(4px);
+}
+.label{
+	font-size: 25px;
+	  text-shadow: 2px 0 0 #393b39, -2px 0 0 #393b39, 0 2px 0 #393b39, 0 -2px 0 #393b39, 1px 1px #393b39, -1px -1px 0 #393b39, 1px -1px 0 #393b39, -1px 1px 0 #393b39;
+	font-family: sans-serif;
+	color: white;
+}
+#rotate{
+	background-image: url("https://bit.ly/2RO89t2");
+	height: 20%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-animation: ruota 3s infinite ease-in-out;
+
+		
+
+}
+@keyframes ruota{
+	from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(360deg);
+		}
+}
+#prova{
+	background-image: url("https://i.gifer.com/BlPW.gif");
+	height: 20%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
