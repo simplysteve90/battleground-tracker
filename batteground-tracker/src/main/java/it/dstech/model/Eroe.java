@@ -1,15 +1,20 @@
 package it.dstech.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+
+import com.mysql.cj.jdbc.Blob;
 
 @Entity
 public class Eroe {
 	@Id
 	private String nome;
 	@Lob
+	@Column(columnDefinition = "LONGBLOB NOT NULL")
 	private String image;
+	
 	private String heroPower;
 	public Eroe() {
 	}
@@ -19,6 +24,7 @@ public class Eroe {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public String getImage() {
 		return image;
 	}
@@ -35,5 +41,6 @@ public class Eroe {
 	public void setHeroPower(String heroPower) {
 		this.heroPower = heroPower;
 	}
+
 
 }
