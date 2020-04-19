@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.dstech.service.Service;
-@WebServlet(urlPatterns = ("/scelta-operazione-admin"))
+@WebServlet(urlPatterns = ("/admin/scelta-operazione-admin"))
 public class SceltaOperazioneAdmin extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,12 +28,19 @@ public class SceltaOperazioneAdmin extends HttpServlet {
 		int scelta = Integer.parseInt(req.getParameter("action"));
 		switch (scelta) {
 		case 1:{
-			req.getRequestDispatcher("aggiungiEroe.jsp").forward(req, resp);
+			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 			break;
 		}
 		case 2:{
 			req.setAttribute("listaEroi", service.stampaListaEroi());
-			req.getRequestDispatcher("listaEroi.jsp").forward(req, resp);
+			req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
+		}
+		case 3:{
+			req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
+		}
+		case 4:{
+			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
+			req.getRequestDispatcher("/listaComposizioni.jsp").forward(req, resp);
 		}
 		default:
 			break;

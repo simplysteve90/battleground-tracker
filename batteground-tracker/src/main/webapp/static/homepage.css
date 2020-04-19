@@ -1,16 +1,17 @@
-
-html {
-	height: 100%;
-}
-
-body {
-	min-height: 100%;
-	height: 100%;
+body{
+	
 	background-image: url("https://images4.alphacoders.com/102/1028991.jpg");
 	background-size:cover; 
 	background-repeat: no-repeat;
 	text-align: center;
+	}
+html {
+	min-height:100%;
+	height: 100%;
+	display: block;
 }
+
+
 .select{
 	width: 10%;
 	padding: 12px 20px;
@@ -34,6 +35,7 @@ input[type=text], input[type=password], input[type= number]  {
 	border-radius: 5px;
 }
 #scritta{
+	
 	height: 30%;
 	width: 100%;
 	background-image: url("https://bit.ly/2VjZuAX");
@@ -56,7 +58,7 @@ button {
 	background-color: black;
 background-image: url("https://bit.ly/34PBqsS");
 background-size: 100%;
-background-position: 180px 70px;
+
 }
 .pulsante:hover{
 	 transform: translateY(4px);

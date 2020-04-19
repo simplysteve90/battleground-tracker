@@ -12,6 +12,10 @@
 		<filter-name>filtroUtente</filter-name>
 		<url-pattern />
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>filtroAdmin</filter-name>
+		<url-pattern />
+	</filter-mapping>
 
 </web-app>
 	

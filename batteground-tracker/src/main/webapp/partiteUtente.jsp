@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="tornaAlProfilo" method="post">
+<%String path = request.getContextPath(); %>
+<form action="<%=path %>/utente/tornaAlProfilo" method="post">
 	<hr>
 	<ol>
 		<c:forEach items="${listaPartiteUtente}" var="lista">

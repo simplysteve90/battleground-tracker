@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%String path = request.getContextPath(); %>
+<form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
+<button type="submit">Torna indietro</button>
+</form>
+
 <form action="" method="post">
 	<hr>
 	<ol>

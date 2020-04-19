@@ -28,6 +28,13 @@ public class Service {
 	}
 	
 /////////////Aggiunta
+	public void aggiungiComposizione(String nome) {
+		Composizione comp= new Composizione();
+		comp.setNome(nome);
+		em.getTransaction().begin();
+		em.persist(comp);
+		em.getTransaction().commit();
+	}
 	public void creazioneUtente(String username, String password, long rating) {
 		Utente utente = new Utente();
 		utente.setUsername(username);
@@ -66,6 +73,13 @@ public class Service {
 		em.getTransaction().commit();
 	}
 /////////////Check
+	public boolean checkEsistenzaComposizione(String nome) {
+		Composizione comp= em.find(Composizione.class, nome);
+		if(comp!=null) {
+			return true;
+		}return false;
+		
+	}
 	public boolean checkEsistenzaUtente(String username, String password) {
 		Utente utente = em.find(Utente.class, username);
 		if (utente.getPassword().equals(password) && utente.getUsername().equals(username)) {
@@ -130,5 +144,6 @@ public class Service {
 		Query query = em.createQuery("DELETE FROM Utente u where u.username = ?1", Eroe.class);
 		query.setParameter(1, username);
 	}
+	
 
 }
