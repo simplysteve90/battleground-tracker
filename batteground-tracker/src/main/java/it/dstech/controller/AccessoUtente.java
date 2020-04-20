@@ -17,7 +17,7 @@ import it.dstech.service.Service;
 public class AccessoUtente extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	req.getRequestDispatcher("homepage.jsp").forward(req, resp);
+	req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,17 +32,24 @@ public class AccessoUtente extends HttpServlet {
 			if(service.checkEsistenzaUtente(username, password)) {
 				if(service.checkRuolo(username)) {
 					session.setAttribute("username", username);
+					service.close();
 					req.getRequestDispatcher("profiloAdmin.jsp").forward(req, resp);
-				}else {
+				}else if(service.checkActiveMail(username)) {
 					session.setAttribute("username", username);
 					session.setAttribute("password", password);
+					service.close();
 					req.getRequestDispatcher("/profiloUtente.jsp").forward(req, resp);
+				}else {
+					service.close();
+					req.getRequestDispatcher("homepage.jsp").forward(req, resp);
 				}
 			}else {
+				service.close();
 				req.setAttribute("messaggio", "Utente inesistente");
-				req.getRequestDispatcher("home").forward(req, resp);
+				req.getRequestDispatcher("homepage.jsp").forward(req, resp);
 			}
 		}else {
+			service.close();
 			req.getRequestDispatcher("registrazione.jsp").forward(req, resp);
 		}
 	}

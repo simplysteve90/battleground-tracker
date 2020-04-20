@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TornaAlProfilo extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/homepage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

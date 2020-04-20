@@ -5,24 +5,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Eroi</title>
 </head>
 <body>
 <%String path = request.getContextPath(); %>
 <form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
 <button type="submit">Torna indietro</button>
 </form>
-
-<form action="" method="post">
 	<hr>
 	<ol>
 		<c:forEach items="${listaEroi}" var="lista">
 			<li><c:out value="${lista.getNome()}" /></li>
 			 <img src="data:image/png;base64,<c:out value="${lista.getImage()}" />"> 
+<form action="<%=path %>/admin/scelta-modifica" method="post">
+			<input type="hidden" name="nome" value="${lista.getNome()}">
+			<button type="submit" name="action" value="1">Modifica</button><br><br>
+			<button type="submit" name="action" value="2">Elimina</button><br><br>
+</form>
 		</c:forEach>
 	</ol>
 	<hr>
-	<input type="submit" value="Profilo">
-</form>
 </body>
 </html>

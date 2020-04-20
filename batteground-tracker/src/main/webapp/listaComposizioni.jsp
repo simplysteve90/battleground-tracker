@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +8,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%String path = request.getContextPath(); %>
-<form action="" method="post">
+	<%
+		String path = request.getContextPath();
+	%>
 	<hr>
 	<ol>
 		<c:forEach items="${listaComposizioni}" var="lista">
-			<li><c:out value="${lista}" /></li>
+			<li><c:out value="${lista.getNome()}" /></li>
+			<form action="<%=path%>/admin/scelta-modifica-composizione"
+				method="post">
+				<input type="hidden" name="nome" value="${lista.getNome()}">
+				<button type="submit" name="action">Elimina</button>
+				<br>
+				<br>
+			</form>
 		</c:forEach>
 	</ol>
 	<hr>
-</form>
-<form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
-<button type="submit">Torna indietro</button>
-</form>
+
+	<form action="<%=path%>/admin/tornaAlProfiloAdmin" method="post">
+		<button type="submit">Torna indietro</button>
+	</form>
 </body>
 </html>

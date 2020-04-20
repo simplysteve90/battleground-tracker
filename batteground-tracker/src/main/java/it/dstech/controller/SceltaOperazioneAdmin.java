@@ -16,7 +16,7 @@ import it.dstech.service.Service;
 public class SceltaOperazioneAdmin extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("homepage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 
 	@Override
@@ -24,26 +24,42 @@ public class SceltaOperazioneAdmin extends HttpServlet {
 		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
 		EntityManager em = emf.createEntityManager();
 		Service service = new Service(em);
-		HttpSession session = req.getSession();
 		int scelta = Integer.parseInt(req.getParameter("action"));
 		switch (scelta) {
 		case 1:{
+			service.close();
 			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 			break;
 		}
 		case 2:{
 			req.setAttribute("listaEroi", service.stampaListaEroi());
+			service.close();
 			req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
+			break;
 		}
 		case 3:{
+			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
+			service.close();
 			req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
+			break;
 		}
 		case 4:{
 			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
+			service.close();
 			req.getRequestDispatcher("/listaComposizioni.jsp").forward(req, resp);
-		}
-		default:
 			break;
+		}
+		case 5:{
+			req.setAttribute("listaUtenti", service.stampaListaUtenti());
+			service.close();
+			req.getRequestDispatcher("/listaUtenti.jsp").forward(req, resp);
+			break;
+		}
+		case 6:{
+			service.close();
+			resp.sendRedirect("/battleground-tracker/logout");
+			break;
+		}
 		}
 	}
 	

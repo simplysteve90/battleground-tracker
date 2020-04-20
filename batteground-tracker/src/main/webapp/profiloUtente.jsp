@@ -16,7 +16,8 @@
 <form action="<%=path%>/utente/scelta" method="post">
 <button type="submit" class="pulsante" name="action" value="1">Aggiungi Partita</button><br><br>
 <button type="submit" class="pulsante" name="action" value="2">Lista Partite</button><br><br>
-<button type="submit" class="pulsante" name="action" value="3">Statistiche Eroi</button>
+<button type="submit" class="pulsante" name="action" value="3">Statistiche Eroi</button><br><br>
+<button type="submit" class="pulsante" name="action" value="4">LogOut</button>
 </form>
 </body>
 </html>

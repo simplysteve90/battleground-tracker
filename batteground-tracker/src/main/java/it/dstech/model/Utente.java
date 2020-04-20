@@ -10,9 +10,11 @@ import javax.persistence.OneToMany;
 public class Utente {
 	@Id
 	private String username;
+	private String email;
 	private String password;
 	private String ruolo;
 	private long rating;
+	private boolean active;
 	 @OneToMany
 	 private List<Partita>partite;
 	public Utente() {
@@ -51,6 +53,21 @@ public class Utente {
 	}
 	public void setRating(Long rating) {
 		this.rating = rating;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setRating(long rating) {
+		this.rating = rating;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	 
 	 

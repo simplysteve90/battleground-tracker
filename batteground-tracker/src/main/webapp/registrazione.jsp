@@ -13,6 +13,8 @@
 <body>
 <div id="scritta"></div>
 <form action="registrazione" method="post">
+<label for="username" class="label"><b>Email</b></label><br>
+<input type="email" required="required" name="email" placeholder="Inserisci l'email"><br>
 <label for="username" class="label"><b>Username</b></label><br>
 <input type="text" name="username" placeholder="Inserisci l'username" required="required"><br>
 <label for="password" class="label" ><b>Password</b></label><br>

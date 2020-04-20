@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!DOCTYPE html>
 <html>
@@ -15,27 +16,27 @@
 </style>
 </head>
 <body>
-<%List<Eroe>listaEroi=(List<Eroe>)request.getAttribute("listaEroi");
-List<Composizione>listaComposizioni=(List<Composizione>)request.getAttribute("listaComposizioni");
+<%
 String path = request.getContextPath();
 %>
 <form action="<%=path %>/utente/partita" method="post">
-<select size="1" class="select" style= "width: 25%" name="eroe" id="eroe"><br>
-	<%for (Eroe eroe:listaEroi){ %>
-	
-	 <option ><%=eroe.getNome() %></option><br>
-	 <%} %>
+<select size="1" class="select" style= "width: 25%" name="eroe" id="eroe">
+<c:forEach items="${listaEroi}" var="lista">
+			<option><c:out value="${lista.getNome()}" /></option>
+		</c:forEach>
+</select><br>
+	<select size="1" class="select" style= "width: 25%" name="composizione" id="eroe">
+	<c:forEach items="${listaComposizioni}" var="listaComp">
+			<option><c:out value="${listaComp.getNome()}" /></option>
+		</c:forEach>
 	</select><br>
-	<select size="1" class="select" style= "width: 25%" name="composizione" id="eroe"><br>
-	<%for (Composizione comp:listaComposizioni){ %>
-	
-	 <option ><%=comp.getNome() %></option><br>
-	 <%} %>
-	</select><br>
-	<input type="number" name="punteggio"><br>
-	<input type="number" min="1" max="8" name="posizione"><br>
-	<input type="text" name="note" ><br>
+	<input type="number" name="punteggio" placeholder="Punteggio" required="required"><br>
+	<input type="number" min="1" max="8" name="posizione" placeholder="Posizione" required="required"><br>
+	<input type="text" name="note" placeholder="Note" required="required"><br>
 	<button type="submit" >Aggiungi</button>
+	</form>
+	<form action="<%=path%>/utente/tornaAlProfilo" method="post">
+	<input type="submit" value="Torna Al Profilo">
 	</form>
 </body>
 </html>

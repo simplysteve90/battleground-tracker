@@ -17,7 +17,7 @@ import it.dstech.service.Service;
 public class NuovaPartita extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/homepage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +34,7 @@ public class NuovaPartita extends HttpServlet {
 		long calcolaRating = service.getRating(username) + (punteggio);
 		service.aggiungiPartita(username, composizione, eroe, note, punteggio, posizione);
 		service.updateRating(username, calcolaRating);
+		service.close();
 		req.getRequestDispatcher("/profiloUtente.jsp").forward(req, resp);
 	}
 }

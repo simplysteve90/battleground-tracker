@@ -16,7 +16,7 @@ import it.dstech.service.Service;
 public class AggiungiComposizione extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	req.getRequestDispatcher("homepage.jsp").forward(req, resp);
+	req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,9 +26,11 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	String nome= req.getParameter("nome");
 	if (!service.checkEsistenzaComposizione(nome)) {
 		service.aggiungiComposizione(nome);
+		service.close();
 		req.setAttribute("messaggio", "Composizione aggiunta");
 		req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
 	} else {
+		service.close();
 		req.setAttribute("messaggio", "Composizione gia esistente");
 		req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
 	}

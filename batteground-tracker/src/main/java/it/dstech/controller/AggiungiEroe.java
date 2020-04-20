@@ -20,7 +20,7 @@ import it.dstech.service.Service;
 public class AggiungiEroe extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/homepage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 
 	@Override
@@ -28,15 +28,17 @@ public class AggiungiEroe extends HttpServlet {
 		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
 		EntityManager em = emf.createEntityManager();
 		Service service = new Service(em);
-		HttpSession session = req.getSession();
 		String nome = req.getParameter("nome");
 		Part immagine = req.getPart("immagine");
 		String heroPower = req.getParameter("power");
 		if (!service.checkEsistenzaEroe(nome)) {
 			service.aggiungiEroe(nome, immagine, heroPower);
+			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.setAttribute("messaggio", "Eroe aggiunto");
+			service.close();
 			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 		} else {
+			service.close();
 			req.setAttribute("messaggio", "Eroe gia esistente");
 			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 		}

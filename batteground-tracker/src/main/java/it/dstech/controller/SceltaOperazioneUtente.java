@@ -16,9 +16,10 @@ import it.dstech.model.Partita;
 import it.dstech.service.Service;
 
 @WebServlet(urlPatterns = ("/utente/scelta"))
-public class SceltaOperazione extends HttpServlet {
+public class SceltaOperazioneUtente extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/homepage").forward(req, resp);
 	}
 
 	@Override
@@ -33,7 +34,9 @@ public class SceltaOperazione extends HttpServlet {
 		case 1:
 			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
 			req.setAttribute("listaEroi", service.stampaListaEroi());
+			service.close();
 			req.getRequestDispatcher("/aggiungiPartita.jsp").forward(req, resp);
+			break;
 		case 2: {
 			long stampaNumeroPartiteGiocate = service.stampaNumeroPartiteGiocate(username);
 			long stampaTopFour = service.stampaTopFour(username);
@@ -41,15 +44,25 @@ public class SceltaOperazione extends HttpServlet {
 			req.setAttribute("numeroVincite", service.stampaVincite(username));
 			req.setAttribute("numeroPartite", stampaNumeroPartiteGiocate);
 			req.setAttribute("listaPartiteUtente", service.stampaListaPartite(username));
+			service.close();
 			req.getRequestDispatcher("/partiteUtente.jsp").forward(req, resp);
+			break;
 		}
 		case 3: {
+			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.getRequestDispatcher("/statistichePartite.jsp").forward(req, resp);
+			break;
+		}
+		case 4:{
+			service.close();
+			resp.sendRedirect("/battleground-tracker/logout");
+			break;
 		}
 	}
 }
-
 	public double topFour(long topFour, long numeroPartite) {
+		if(numeroPartite != 0) {
 		return (topFour * 100) / numeroPartite;
+		}return 0.0;
 	}
 }
