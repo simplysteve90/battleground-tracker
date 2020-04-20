@@ -6,20 +6,42 @@
 <head>
 <link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Lista Partite</title>
 </head>
 <body>
-<%String path = request.getContextPath(); %>
-<form action="<%=path %>/utente/tornaAlProfilo" method="post">
-	<hr>
-	<ol>
-		<c:forEach items="${listaPartiteUtente}" var="lista">
-			<li><c:out value="${lista}" /></li>
-		</c:forEach>
-	</ol>
-	<hr>
-	<input type="submit" value="Profilo">
-</form>
+	<%
+		String path = request.getContextPath();
+		long partiteGiocate = (long) request.getAttribute("numeroPartite");
+		double numeroTopFour = (double) request.getAttribute("numeroTopFour");
+		long numeroVincite = (long) request.getAttribute("numeroVincite");
+	%>
+	<form action="<%=path%>/utente/tornaAlProfilo" method="post">
+		<hr>
+		<ol>
+			<c:forEach items="${listaPartiteUtente}" var="lista">
+				<li><c:out value="${lista}" /></li>
+			</c:forEach>
+		</ol>
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Partite Giocate</th>
+					<th>Top 4(%)</th>
+					<th>Partite Vinte</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%=partiteGiocate%></td>
+					<td><%=numeroTopFour%>%</td>
+					<td><%=numeroVincite%></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<input type="submit" value="Profilo">
+	</form>
 
 </body>
 </html>

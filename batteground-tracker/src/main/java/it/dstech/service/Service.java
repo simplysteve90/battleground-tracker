@@ -135,6 +135,27 @@ public class Service {
 		Utente utente = em.find(Utente.class, username);
 		return utente.getRating();
 	}
+	public long stampaNumeroPartiteGiocate(String username) {
+		TypedQuery<Long> query = em.createQuery("SELECT COUNT (p.id) FROM Partita p WHERE p.usernameUtente = :usernameUtente", Long.class);
+		query.setParameter("usernameUtente", username);
+		return (long) query.getSingleResult();
+	}
+	public long stampaTopFour(String username) {
+		long contatore = 0;
+		for (Partita p : stampaListaPartite(username)) {
+			if(p.getPosizione() <= 4) {
+				contatore++;
+			}
+		}return contatore;
+	}
+	public long stampaVincite(String username) {
+		long contatore = 0;
+		for (Partita p : stampaListaPartite(username)) {
+			if(p.getPosizione() < 2) {
+				contatore++;
+			}
+		}return contatore;
+	}
 /////////////Elimina
 	public void eliminaEroe(String nome) {
 		Query query = em.createQuery("DELETE FROM Eroe e where e.nome = ?1", Eroe.class);
