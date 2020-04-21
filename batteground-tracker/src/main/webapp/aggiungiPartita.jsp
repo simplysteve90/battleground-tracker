@@ -33,7 +33,7 @@ String path = request.getContextPath();
 	<input type="number" name="punteggio" placeholder="Punteggio" required="required"><br>
 	<input type="number" min="1" max="8" name="posizione" placeholder="Posizione" required="required"><br>
 	<input type="text" name="note" placeholder="Note" required="required"><br>
-	<button type="submit" >Aggiungi</button>
+	<button type="submit" class="pulsante" >Aggiungi</button>
 	</form>
 	<form action="<%=path%>/utente/tornaAlProfilo" method="post">
 	<input type="submit" value="Torna Al Profilo">
