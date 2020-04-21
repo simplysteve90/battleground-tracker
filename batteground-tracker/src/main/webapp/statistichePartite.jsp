@@ -34,16 +34,6 @@
 	<input type="submit" value="Torna Al Profilo">
 	</form>
 	
-	<table>
-		<thead>
-			<tr>
-				<td>Nome</td>
-				<td>Composizione</td>
-				<td>Posizione</td>
-				<td>Punteggio</td>
-				<td>Note</td>
-			</tr>
-		</thead>
 		<%if(nome != null){ %>
 		<%
 		long topFourEroe = (long) request.getAttribute("numeroTopFourEroe");
@@ -51,19 +41,6 @@
 		long partiteEroe = (long) request.getAttribute("numeroPartiteEroe");
 		double topFourEroePercentuale = (double) request.getAttribute("numeroTopFourEroePercentuale");
 		%>
-		<c:forEach items="${listaPartite}" var="listaPartite">
-		<tbody>
-			<tr>
-				<td><c:out value="${listaPartite.getEroe()}" /></td>
-				<td><c:out value="${listaPartite.getComposition()}" /></td>
-				<td><c:out value="${listaPartite.getPosizione()}" /></td>
-				<td><c:out value="${listaPartite.getPunteggio()}" /></td>
-						<td><c:out value="${listaPartite.getNote()}" /></td>
-			</tr>
-			</c:forEach>
-		</tbody>
-		
-	</table>
 	<table>
 	<thead>
 	<tr>
@@ -80,6 +57,29 @@
 	</tr>
 	</tbody>
 	</table>
+	<table>
+		<thead>
+			<tr>
+				<td>Nome</td>
+				<td>Composizione</td>
+				<td>Posizione</td>
+				<td>Punteggio</td>
+				<td>Note</td>
+			</tr>
+		</thead>
+		<c:forEach items="${listaPartite}" var="listaPartite">
+		<tbody>
+			<tr>
+				<td><c:out value="${listaPartite.getEroe()}" /></td>
+				<td><c:out value="${listaPartite.getComposition()}" /></td>
+				<td><c:out value="${listaPartite.getPosizione()}" /></td>
+				<td><c:out value="${listaPartite.getPunteggio()}" /></td>
+						<td><c:out value="${listaPartite.getNote()}" /></td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+		
 					<%}%>
 </body>
 </html>
