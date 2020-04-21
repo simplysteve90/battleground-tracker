@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Statistiche Eroe</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
 <%
 		String path = request.getContextPath();

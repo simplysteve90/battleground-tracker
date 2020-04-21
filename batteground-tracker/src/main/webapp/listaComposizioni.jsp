@@ -7,6 +7,9 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
 	<%
 		String path = request.getContextPath();
@@ -18,7 +21,7 @@
 			<form action="<%=path%>/admin/scelta-modifica-composizione"
 				method="post">
 				<input type="hidden" name="nome" value="${lista.getNome()}">
-				<button type="submit" name="action">Elimina</button>
+				<button type="submit" class="pulsante" name="action">Elimina</button>
 				<br>
 				<br>
 			</form>
@@ -27,7 +30,7 @@
 	<hr>
 
 	<form action="<%=path%>/admin/tornaAlProfiloAdmin" method="post">
-		<button type="submit">Torna indietro</button>
+		<button type="submit" class="pulsante">Torna indietro</button>
 	</form>
 </body>
 </html>

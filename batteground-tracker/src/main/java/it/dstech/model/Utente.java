@@ -2,6 +2,7 @@ package it.dstech.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -14,6 +15,7 @@ public class Utente {
 	private String password;
 	private String ruolo;
 	private long rating;
+	@Column(columnDefinition = "BOOLEAN NOT NULL")
 	private boolean active;
 	 @OneToMany
 	 private List<Partita>partite;

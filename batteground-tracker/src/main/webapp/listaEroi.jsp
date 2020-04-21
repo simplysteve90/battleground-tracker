@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <title>Eroi</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
 <%String path = request.getContextPath(); %>
-<form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
-<button type="submit">Torna indietro</button>
-</form>
 	<hr>
 	<ol>
 		<c:forEach items="${listaEroi}" var="lista">
@@ -19,8 +19,11 @@
 			 <img src="data:image/png;base64,<c:out value="${lista.getImage()}" />"> 
 <form action="<%=path %>/admin/scelta-modifica" method="post">
 			<input type="hidden" name="nome" value="${lista.getNome()}">
-			<button type="submit" name="action" value="1">Modifica</button><br><br>
-			<button type="submit" name="action" value="2">Elimina</button><br><br>
+			<button type="submit" class="pulsante" name="action" value="1">Modifica</button><br><br>
+			<button type="submit" class="pulsante" name="action" value="2">Elimina</button><br><br>
+</form>
+<form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
+<button type="submit" class="pulsante">Torna indietro</button>
 </form>
 		</c:forEach>
 	</ol>

@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Lista Partite</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
 	<%
 		String path = request.getContextPath();
