@@ -31,8 +31,10 @@ public class AggiungiEroe extends HttpServlet {
 		String nome = req.getParameter("nome");
 		Part immagine = req.getPart("immagine");
 		String heroPower = req.getParameter("power");
+		String costo= req.getParameter("costo");
+		String descrizione= req.getParameter("descrizione");
 		if (!service.checkEsistenzaEroe(nome)) {
-			service.aggiungiEroe(nome, immagine, heroPower);
+			service.aggiungiEroe(nome, immagine, heroPower, costo, descrizione);
 			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.setAttribute("messaggio", "Eroe aggiunto");
 			service.close();

@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <title>Modifica Eroe</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
+<div id="scritta"></div>
 	<%
 	String path = request.getContextPath();
 	String nome = (String) request.getAttribute("nome");

@@ -16,6 +16,8 @@ public class Eroe {
 	private String image;
 	
 	private String heroPower;
+	private String costo;
+	private String descrizione;
 	public Eroe() {
 	}
 	public String getNome() {
@@ -40,6 +42,18 @@ public class Eroe {
 	}
 	public void setHeroPower(String heroPower) {
 		this.heroPower = heroPower;
+	}
+	public String getCosto() {
+		return costo;
+	}
+	public void setCosto(String costo) {
+		this.costo = costo;
+	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
 
 

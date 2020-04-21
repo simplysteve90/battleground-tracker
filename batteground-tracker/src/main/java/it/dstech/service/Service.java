@@ -69,7 +69,7 @@ public class Service {
 		em.getTransaction().commit();
 	}
 
-	public void aggiungiEroe(String nome, Part immagine, String heroPower) throws IOException {
+	public void aggiungiEroe(String nome, Part immagine, String heroPower, String costo, String descrizione) throws IOException {
 		InputStream f = immagine.getInputStream();
 		byte[] imageBytes = new byte[(int) immagine.getSize()];
 		f.read(imageBytes, 0, imageBytes.length);
@@ -79,6 +79,8 @@ public class Service {
 		e.setNome(nome);
 		e.setImage(imageStr);
 		e.setHeroPower(heroPower);
+		e.setCosto(costo);
+		e.setDescrizione(descrizione);
 		em.getTransaction().begin();
 		em.persist(e);
 		em.getTransaction().commit();

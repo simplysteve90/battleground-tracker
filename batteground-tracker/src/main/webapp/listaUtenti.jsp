@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>Utenti</title>
 </head>
+<style>
+<%@include file="/static/homepage.css" %>
+</style>
 <body>
+<div id="scritta"></div>
 <%String path = request.getContextPath(); %>
 <form action="<%=path %>/admin/tornaAlProfiloAdmin" method="post">
 <button type="submit">Torna indietro</button>
