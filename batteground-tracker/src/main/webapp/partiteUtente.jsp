@@ -9,7 +9,7 @@
 <title>Lista Partite</title>
 </head>
 <style>
-<%@include file="/static/homepage.css" %>
+<%@include file="style.css" %>
 </style>
 <body>
 	<%

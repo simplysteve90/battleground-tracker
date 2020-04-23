@@ -6,12 +6,6 @@ body{
 	background-repeat: no-repeat;
 	text-align: center;
 	}
-html {
-	min-height:100%;
-	height: 100%;
-	display: block;
-}
-
 
 .select{
 	width: 10%;

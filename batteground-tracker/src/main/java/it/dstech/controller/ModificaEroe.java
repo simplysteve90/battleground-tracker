@@ -33,7 +33,6 @@ public class ModificaEroe extends HttpServlet {
 		service.updatePowerEroe(nome, power);
 		service.updateimmagineEroe(nome, immagine);
 		req.setAttribute("listaEroi", service.stampaListaEroi());
-		service.close();
 		req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
 	}
 }

@@ -10,8 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import it.dstech.validation.EmailUtility;
 import it.dstech.service.Service;
 
@@ -38,10 +36,8 @@ public class Registrazione extends HttpServlet {
 			} catch (MessagingException | IOException e) {
 				e.printStackTrace();
 			}
-			service.close();
 			req.getRequestDispatcher("homepage.jsp").forward(req, resp);
 		} else {
-			service.close();
 			req.setAttribute("messaggio", "Username gia' in uso");
 			req.getRequestDispatcher("registrazione.jsp").forward(req, resp);
 		}

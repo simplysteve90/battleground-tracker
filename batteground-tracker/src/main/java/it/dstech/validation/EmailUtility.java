@@ -37,6 +37,7 @@ public class EmailUtility {
 		propertiesMail.put("mail.smtp.socketFactory.class", properties.getProperty("mail.smtp.socketFactory.class"));
 		propertiesMail.put("mail.smtp.socketFactory.fallback", properties.getProperty("mail.smtp.socketFactory.fallback"));
 		Authenticator auth = new Authenticator() {
+			@Override
 			public PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(properties.getProperty("mail.username"), properties.getProperty("mail.password"));
 			}

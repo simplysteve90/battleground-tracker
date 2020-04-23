@@ -7,7 +7,7 @@
 <link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
 <title>Registrazione</title>
 <style>
-<%@include file="/static/homepage.css" %>
+<%@include file="style.css" %>
 </style>
 </head>
 <body>

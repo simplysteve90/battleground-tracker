@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import it.dstech.service.Service;
@@ -37,10 +36,8 @@ public class AggiungiEroe extends HttpServlet {
 			service.aggiungiEroe(nome, immagine, heroPower, costo, descrizione);
 			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.setAttribute("messaggio", "Eroe aggiunto");
-			service.close();
 			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 		} else {
-			service.close();
 			req.setAttribute("messaggio", "Eroe gia esistente");
 			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
 		}

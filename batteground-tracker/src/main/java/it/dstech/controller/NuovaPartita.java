@@ -34,7 +34,6 @@ public class NuovaPartita extends HttpServlet {
 		long calcolaRating = service.getRating(username) + (punteggio);
 		service.aggiungiPartita(username, composizione, eroe, note, punteggio, posizione);
 		service.updateRating(username, calcolaRating);
-		service.close();
 		req.getRequestDispatcher("/profiloUtente.jsp").forward(req, resp);
 	}
 }

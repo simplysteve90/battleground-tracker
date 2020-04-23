@@ -12,7 +12,7 @@
 <meta charset="ISO-8859-1">
 <title>Aggiungi Partita</title>
 <style>
-<%@include file="/static/homepage.css" %>
+<%@include file="style.css" %>
 </style>
 </head>
 <body>

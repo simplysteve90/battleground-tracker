@@ -29,14 +29,12 @@ public class SceltaOperazioneModificaEroe extends HttpServlet {
 		switch (action) {
 		case 1: {
 			req.setAttribute("nome", nome);
-			service.close();
 			req.getRequestDispatcher("/modificaEroe.jsp").forward(req, resp);
 			break;
 		}
 		case 2:{
 			service.eliminaEroe(nome);
 			req.setAttribute("listaEroi", service.stampaListaEroi());
-			service.close();
 			req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
 			break;
 		}

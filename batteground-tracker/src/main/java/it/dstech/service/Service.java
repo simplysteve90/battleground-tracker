@@ -2,20 +2,12 @@ package it.dstech.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.servlet.http.Part;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Find;
 
 import it.dstech.model.Composizione;
 import it.dstech.model.Eroe;
@@ -29,9 +21,7 @@ public class Service {
 		this.em = em;
 	}
 
-	public void close() {
-		em.close();
-	}
+
 
 /////////////Aggiunta
 	public void aggiungiComposizione(String nome) {
@@ -193,6 +183,14 @@ public class Service {
 	}
 
 /////////////Stampa
+	public long stampaNumeroPartiteGiocateComposizione(String username, String eroe, String composizione) {
+		TypedQuery<Long> query = em
+				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2 and p.composition= ?3", Long.class);
+		query.setParameter(1, username);
+		query.setParameter(2, eroe);
+		query.setParameter(3, composizione);
+		return query.getSingleResult();
+	}
 	
 	public List<Partita> stampaListaPartitePerEroe(String username, String eroe) {
 		TypedQuery<Partita> query = em.createQuery("select p from Partita p where p.usernameUtente = ?1 and p.eroe = ?2",
@@ -206,21 +204,21 @@ public class Service {
 				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2", Long.class);
 		query.setParameter(1, username);
 		query.setParameter(2, eroe);
-		return (long) query.getSingleResult();
+		return query.getSingleResult();
 	}
 	public long stampaNumeroTopFourEroe(String username, String eroe) {
 		TypedQuery<Long> query = em
 				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2 and p.posizione <= 4", Long.class);
 		query.setParameter(1, username);
 		query.setParameter(2, eroe);
-		return (long) query.getSingleResult();
+		return query.getSingleResult();
 	}
 	public long stampaNumeroVincitaEroe(String username, String eroe) {
 		TypedQuery<Long> query = em
 				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2 and p.posizione = 1", Long.class);
 		query.setParameter(1, username);
 		query.setParameter(2, eroe);
-		return (long) query.getSingleResult();
+		return query.getSingleResult();
 	}
 	public List<Eroe> stampaListaEroi() {
 		TypedQuery<Eroe> query = em.createQuery("select e from Eroe e", Eroe.class);
@@ -251,7 +249,7 @@ public class Service {
 		TypedQuery<Long> query = em
 				.createQuery("SELECT COUNT (p.id) FROM Partita p WHERE p.usernameUtente = :usernameUtente", Long.class);
 		query.setParameter("usernameUtente", username);
-		return (long) query.getSingleResult();
+		return query.getSingleResult();
 	}
 
 	public long stampaTopFour(String username) {

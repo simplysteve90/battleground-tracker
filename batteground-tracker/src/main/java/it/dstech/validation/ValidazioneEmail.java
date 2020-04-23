@@ -1,8 +1,6 @@
 package it.dstech.validation;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;

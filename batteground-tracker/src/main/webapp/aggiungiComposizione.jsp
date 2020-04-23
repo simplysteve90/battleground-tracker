@@ -8,7 +8,7 @@
 <title>Aggiungi Composizione</title>
 </head>
 <style>
-<%@include file="/static/homepage.css" %>
+<%@include file="style.css" %>
 </style>
 <body>
 <%String path = request.getContextPath(); %>

@@ -26,7 +26,6 @@ public class EliminaComposizione extends HttpServlet {
 		Service service = new Service(em);
 		String nome = req.getParameter("nome");
 			service.eliminaComposizione(nome);
-			service.close();
 			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
 			req.getRequestDispatcher("/listaComposizioni.jsp").forward(req, resp);
 	}

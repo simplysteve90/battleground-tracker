@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-import com.mysql.cj.jdbc.Blob;
-
 @Entity
 public class Eroe {
 	@Id

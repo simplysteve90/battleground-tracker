@@ -7,7 +7,7 @@
 <title>Admin</title>
 </head>
 <style>
-<%@include file="/static/homepage.css" %>
+<%@include file="style.css" %>
 </style>
 <body>
 <div id="scritta"></div>

@@ -28,7 +28,6 @@ public class ListaPartiteUtente extends HttpServlet {
 		Service service = new Service(em);
 		String username = (String) session.getAttribute("username");
 		List<Partita> stampaListaPartite = service.stampaListaPartite(username);
-		service.close();
 		req.setAttribute("listaPartiteUtente", stampaListaPartite);
 		req.getRequestDispatcher("partiteUtente.jsp").forward(req, resp);
 	}

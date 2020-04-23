@@ -1,6 +1,7 @@
 package it.dstech.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.dstech.model.Partita;
 import it.dstech.service.Service;
 @WebServlet(urlPatterns = "/utente/statistiche-eroe")
 public class StatistichePerEroe extends HttpServlet {
@@ -35,12 +37,23 @@ public class StatistichePerEroe extends HttpServlet {
 		req.setAttribute("numeroPartiteEroe", stampaNumeroPartiteGiocateEroe);
 		req.setAttribute("numeroTopFourEroe", stampaNumeroTopFourEroe);
 		req.setAttribute("listaEroi", service.stampaListaEroi());
-		req.setAttribute("listaPartite", service.stampaListaPartitePerEroe(username, "aaa"));
+		req.setAttribute("listaPartite", service.stampaListaPartitePerEroe(username, nomeEroe));
 		req.getRequestDispatcher("/statistichePartite.jsp").forward(req, resp);
 	}
 	public static double percentualeTopFour(long totale, long topFour) {
 		if(totale != 0) {
 			return (topFour * 100) / totale;
 		}return 0.0;
+	}
+	public static List<Partita> listaPartitePerComp(long numeroPartite, List<Partita> x){
+		int contatore=0;
+				for (Partita partita : x) {
+			
+			if(numeroPartite<=4) {
+				contatore++;
+			}
+			
+		}
+		return null ;
 	}
 }
