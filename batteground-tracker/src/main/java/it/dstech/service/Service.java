@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
 import java.util.List;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -183,6 +187,7 @@ public class Service {
 	}
 
 /////////////Stampa
+<<<<<<< HEAD
 	public long stampaNumeroPartiteGiocateComposizione(String username, String eroe, String composizione) {
 		TypedQuery<Long> query = em
 				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2 and p.composition= ?3", Long.class);
@@ -190,6 +195,23 @@ public class Service {
 		query.setParameter(2, eroe);
 		query.setParameter(3, composizione);
 		return query.getSingleResult();
+=======
+	public long stampaNumeroTopFourComposizione(String username, String eroe, String composizione) {
+		TypedQuery<Long> query = em
+				.createQuery("SELECT COUNT(p.id) FROM Partita p WHERE p.usernameUtente = ?1 and p.eroe = ?2 and p.composition = ?3 and p.posizione <= 4", Long.class);
+		query.setParameter(1, username);
+		query.setParameter(2, eroe);
+		query.setParameter(3, composizione);
+		return (long) query.getSingleResult();
+	}
+	public List<Partita> stampaListaComposizioniPerEroe(String username, String eroe, String composizione) {
+		TypedQuery<Partita> query = em.createQuery("select p from Partita p where p.usernameUtente = ?1 and p.eroe = ?2 and p.composition = ?3",
+				Partita.class);
+		query.setParameter(1, username);
+		query.setParameter(2, eroe);
+		query.setParameter(3, composizione);
+		return query.getResultList();
+>>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
 	}
 	
 	public List<Partita> stampaListaPartitePerEroe(String username, String eroe) {
