@@ -4,12 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
 <meta charset="ISO-8859-1">
 <title>Aggiungi Composizione</title>
 </head>
-<style>
-<%@include file="style.css" %>
-</style>
 <body>
 <%String path = request.getContextPath(); %>
 <c:forEach items="${listaComposizioni}" var="lista">

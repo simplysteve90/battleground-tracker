@@ -3,12 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
 <meta charset="UTF-8">
 <title>Modifica Eroe</title>
 </head>
-<style>
-<%@include file="style.css" %>
-</style>
 <body>
 <div id="scritta"></div>
 	<%

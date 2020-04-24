@@ -4,14 +4,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
 <link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
 <meta charset="UTF-8">
 <title>Lista Partite</title>
 </head>
-<style>
-<%@include file="style.css" %>
-</style>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+			
+				
+					<div class="col-sm">
+						<a class="navbar-brand" href="homepage.jsp">Home</a>
+					</div>
+					<div class="col-sm">
+					ciao</div>
+					<div class="col-sm" align="right">
+		
+					</div>
+			
+
+
+
+
+		</nav>
 	<%
 		String path = request.getContextPath();
 		long partiteGiocate = (long) request.getAttribute("numeroPartite");

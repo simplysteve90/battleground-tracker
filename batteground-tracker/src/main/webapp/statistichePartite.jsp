@@ -8,13 +8,6 @@
 <meta charset="UTF-8">
 <title>Statistiche Partite</title>
 </head>
-<style>
-<<<<<<< HEAD
-<%@include file="style.css" %>
-=======
-<%@include file="/static/homepage.css"%>
->>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
-</style>
 <body>
 	<%
 		String path = request.getContextPath();

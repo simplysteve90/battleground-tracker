@@ -1,14 +1,10 @@
 package it.dstech.controller;
 
-import java.io.IOException;
-<<<<<<< HEAD
 import java.util.List;
-=======
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
->>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,11 +45,8 @@ public class StatistichePerEroe extends HttpServlet {
 		req.setAttribute("numeroPartiteEroe", stampaNumeroPartiteGiocateEroe);
 		req.setAttribute("numeroTopFourEroe", stampaNumeroTopFourEroe);
 		req.setAttribute("listaEroi", service.stampaListaEroi());
-<<<<<<< HEAD
 		req.setAttribute("listaPartite", service.stampaListaPartitePerEroe(username, nomeEroe));
-=======
 		req.setAttribute("listaPartite", stampaListaPartitePerEroe);
->>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
 		req.getRequestDispatcher("/statistichePartite.jsp").forward(req, resp);
 	}
 
@@ -63,7 +56,6 @@ public class StatistichePerEroe extends HttpServlet {
 		}
 		return 0.0;
 	}
-<<<<<<< HEAD
 	public static List<Partita> listaPartitePerComp(long numeroPartite, List<Partita> x){
 		int contatore=0;
 				for (Partita partita : x) {
@@ -75,7 +67,6 @@ public class StatistichePerEroe extends HttpServlet {
 		}
 		return null ;
 	}
-=======
 	
 	public static Map<String, Double> composizionePerEroe(String username, String eroe, Service service,
 			List<Partita> partita) {
@@ -87,5 +78,4 @@ public class StatistichePerEroe extends HttpServlet {
 		}return composizione;
 	}
 
->>>>>>> branch 'master' of https://github.com/simplysteve90/battleground-tracker.git
 }

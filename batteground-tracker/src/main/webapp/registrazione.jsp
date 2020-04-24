@@ -3,12 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
 <meta charset="ISO-8859-1">
 <link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
 <title>Registrazione</title>
-<style>
-<%@include file="style.css" %>
-</style>
 </head>
 <body>
 <div id="scritta"></div>

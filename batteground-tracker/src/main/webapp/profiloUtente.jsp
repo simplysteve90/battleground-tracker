@@ -3,15 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
 <link rel="icon" href="https://bit.ly/2RO89t2" type="image/gif" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>ProfiloUtente</title>
-<style>
-<%@include file="style.css" %>
-</style>
 </head>
 <body>
-<div id="scritta"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+			
+				
+					<div class="col-sm">
+						<a class="navbar-brand" href="homepage.jsp">Home</a>
+					</div>
+					<div class="col-sm">
+					ciao</div>
+					<div class="col-sm" align="right">
+		
+					</div>
+			
+
+
+
+
+		</nav>
+
 <%String path = request.getContextPath(); %>
 <form action="<%=path%>/utente/scelta" method="post">
 <button type="submit" class="pulsante" name="action" value="1">Aggiungi Partita</button><br><br>
