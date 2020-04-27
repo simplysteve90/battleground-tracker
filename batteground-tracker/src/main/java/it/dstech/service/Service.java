@@ -105,8 +105,12 @@ public class Service {
 
 	public boolean checkEsistenzaUtente(String username, String password) {
 		Utente utente = em.find(Utente.class, username);
+		if(utente != null){
+			
+		
 		if (utente.getPassword().equals(password) && utente.getUsername().equals(username)) {
 			return true;
+		}
 		}
 		return false;
 	}

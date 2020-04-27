@@ -13,64 +13,37 @@
 <title>Benvenuto</title>
 </head>
 <body>
-	<div class="pino">
-	
+
+	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<div class="col-sm">
-						<a class="navbar-brand" href="homepage.jsp">Home</a>
+						<a class="navbar-brand" href="profiloUtente.jsp">Home</a>
 					</div>
 					<div class="col-sm">
 					ciao</div>
 					<div class="col-sm" align="right">
 						<form action="accesso" method="post">
-							<input type="text" name="username"
-								placeholder="Inserisci l'username"> 
-								<input type="password" name="password"
-								placeholder="Inserisci la password">
+							<input type="text" name="username" required="required"
+								placeholder="Username"> 
+								<input type="password" name="password"  required="required"
+								placeholder="Password">
 							<button type="submit" value="1" class="pulsante" name="action">
-								<b>ACCEDI</b>
+								<b>Login</b>
 							</button>
-							<button type="submit" class="pulsante" value="2" name="action">
-								<b>REGISTRATI</b>
+							<button type="submit" class="pulsante" value="2" name="action" formnovalidate="formnovalidate">
+								<b>Register</b>
 							</button>
-						</form>
+							</form>
 					</div>
 		</nav>
-		<div align="center">
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
+		</header>
 		
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
-		<h1>CIAO</h1><br>
+		<div class="iframe-container" align="center">
+		<img src="./media/scritta.png" alt="Mountain"><br>
 		
-</div>
-</div>
+		<iframe width="1024" height="576" src="https://www.youtube.com/embed/NuW_wDMXl64" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		
 
 </body>
 </html>
