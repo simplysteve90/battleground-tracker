@@ -12,7 +12,6 @@ public class Eroe {
 	@Lob
 	@Column(columnDefinition = "LONGBLOB NOT NULL")
 	private String image;
-	
 	private String heroPower;
 	private String costo;
 	private String descrizione;

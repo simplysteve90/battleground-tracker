@@ -26,11 +26,13 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	String nome= req.getParameter("nome");
 	if (!service.checkEsistenzaComposizione(nome)) {
 		service.aggiungiComposizione(nome);
+		req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
 		req.setAttribute("messaggio", "Composizione aggiunta");
-		req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/admin/aggiungiComposizione.jsp").forward(req, resp);
 	} else {
+		req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
 		req.setAttribute("messaggio", "Composizione gia esistente");
-		req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/admin/aggiungiComposizione.jsp").forward(req, resp);
 	}
 }
 }

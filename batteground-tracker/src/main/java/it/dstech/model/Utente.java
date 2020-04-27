@@ -14,6 +14,7 @@ public class Utente {
 	private String email;
 	private String password;
 	private String ruolo;
+	private long ratingIniziale;
 	private long rating;
 	@Column(columnDefinition = "BOOLEAN NOT NULL")
 	private boolean active;
@@ -71,8 +72,11 @@ public class Utente {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	 
-	 
-	
+	public long getRatingIniziale() {
+		return ratingIniziale;
+	}
+	public void setRatingIniziale(long ratingIniziale) {
+		this.ratingIniziale = ratingIniziale;
+	}
 
 }

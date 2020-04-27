@@ -29,10 +29,12 @@ public class ModificaEroe extends HttpServlet {
 		Service service = new Service(em);
 		String nome = req.getParameter("nome");
 		String power = req.getParameter("power");
+		String descrizione = req.getParameter("descrizione");
+		String costo = req.getParameter("costo");
 		Part immagine = req.getPart("immagine");
-		service.updatePowerEroe(nome, power);
+		service.updatePowerEroe(nome, power, descrizione, costo);
 		service.updateimmagineEroe(nome, immagine);
 		req.setAttribute("listaEroi", service.stampaListaEroi());
-		req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/admin/listaEroi.jsp").forward(req, resp);
 	}
 }

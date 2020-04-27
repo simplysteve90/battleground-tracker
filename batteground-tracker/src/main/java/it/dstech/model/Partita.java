@@ -16,6 +16,7 @@ public class Partita {
 	private String note;
 	private int posizione;
 	private int punteggio;
+	private String dataOra;
 	public Partita() {
 	}
 	public long getId() {
@@ -61,11 +62,20 @@ public class Partita {
 	public void setUsernameUtente(String usernameUtente) {
 		this.usernameUtente = usernameUtente;
 	}
+	
+	public String getDataOra() {
+		return dataOra;
+	}
+	public void setDataOra(String dataOra) {
+		this.dataOra = dataOra;
+	}
 	@Override
 	public String toString() {
-		return "Partita [id=" + id + ", composition=" + composition + ", eroe=" + eroe + ", note=" + note
-				+ ", posizione=" + posizione + ", punteggio=" + punteggio + "]";
+		return "Partita [id=" + id + ", usernameUtente=" + usernameUtente + ", composition=" + composition + ", eroe="
+				+ eroe + ", note=" + note + ", posizione=" + posizione + ", punteggio=" + punteggio + ", dataOra="
+				+ dataOra + "]";
 	}
+	 
 	
 	
 }

@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.dstech.cryptography.Utility;
 import it.dstech.service.Service;
 
 @WebServlet(urlPatterns = { "/accesso"})
 public class AccessoUtente extends HttpServlet {
+	private static final String CHIAVE = "Mary has one cat";
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	req.getRequestDispatcher("/homepage").forward(req, resp);
@@ -26,14 +28,13 @@ public class AccessoUtente extends HttpServlet {
 		Service service = new Service(em);
 		HttpSession session = req.getSession();
 		String username = req.getParameter("username");
-		String password = req.getParameter("password");
+		String password = Utility.encrypt(req.getParameter("password") ,CHIAVE );
 		String action = req.getParameter("action");
 		if(action.equals("1")) {
 			if(service.checkEsistenzaUtente(username, password)) {
 				if(service.checkRuolo(username)) {
 					session.setAttribute("username", username);
-					
-					req.getRequestDispatcher("profiloAdmin.jsp").forward(req, resp);
+					req.getRequestDispatcher("/WEB-INF/admin/profiloAdmin.jsp").forward(req, resp);
 				}else if(service.checkActiveMail(username)) {
 					session.setAttribute("username", username);
 					session.setAttribute("password", password);

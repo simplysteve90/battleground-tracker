@@ -1,7 +1,7 @@
+<%@page import="it.dstech.model.Utente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,7 @@
 	<%
 		String path = request.getContextPath();
 		String nome = (String) request.getAttribute("nome");
+		Utente utente = (Utente) request.getAttribute("utente");
 	%>
 
 
@@ -28,7 +29,21 @@
 	<form action="<%=path%>/utente/tornaAlProfilo" method="post">
 		<input type="submit" value="Torna Al Profilo">
 	</form>
-
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Rating iniziale</th>
+				<th>Rating attuale</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=utente.getRatingIniziale()%></td>
+				<td><%=utente.getRating()%></td>
+			</tr>
+		</tbody>
+	</table>
 	<%
 		if (nome != null) {
 	%>

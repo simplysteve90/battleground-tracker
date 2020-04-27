@@ -40,6 +40,7 @@ public class Service {
 		utente.setPassword(password);
 		utente.setRuolo("cliente");
 		utente.setActive(false);
+		utente.setRatingIniziale(rating);
 		utente.setRating(rating);
 		em.getTransaction().begin();
 		em.persist(utente);
@@ -47,7 +48,7 @@ public class Service {
 	}
 
 	public void aggiungiPartita(String username, String composition, String eroe, String note, int punteggio,
-			int posizione) {
+			int posizione, String dataOra) {
 		Partita partita = new Partita();
 		partita.setUsernameUtente(username);
 		partita.setComposition(composition);
@@ -55,6 +56,7 @@ public class Service {
 		partita.setNote(note);
 		partita.setPosizione(posizione);
 		partita.setPunteggio(punteggio);
+		partita.setDataOra(dataOra);
 		em.getTransaction().begin();
 		em.persist(partita);
 		em.getTransaction().commit();
@@ -148,23 +150,23 @@ public class Service {
 			em.getTransaction().commit();
 		}
 	}
-	public void updatePowerEroe(String nome, String power) {
-		if(power != null) {
+	public void updatePowerEroe(String nome, String power, String descrizione, String costo) {
 			Eroe eroe = em.find(Eroe.class, nome);
 			eroe.setHeroPower(power);
+			eroe.setDescrizione(descrizione);
+			eroe.setCosto(costo);
 			em.getTransaction().begin();
 			em.persist(eroe);
 			em.getTransaction().commit();
-		}
 	}
 	public void updateimmagineEroe(String nome, Part immagine) throws IOException {
-		if(immagine != null) {
 			Eroe eroe = em.find(Eroe.class, nome);
 			InputStream f = immagine.getInputStream();
 			byte[] imageBytes = new byte[(int) immagine.getSize()];
 			f.read(imageBytes, 0, imageBytes.length);
 			f.close();
 			String imageStr = Base64.getEncoder().encodeToString(imageBytes);
+			if(!imageStr.equals("")) {
 			eroe.setImage(imageStr);
 			em.getTransaction().begin();
 			em.persist(eroe);
@@ -255,15 +257,10 @@ public class Service {
 	}
 
 	public List<Partita> stampaListaPartite(String username) {
-		TypedQuery<Partita> query = em.createQuery("select p from Partita p where p.usernameUtente = ?1",
+		TypedQuery<Partita> query = em.createQuery("select p from Partita p where p.usernameUtente = ?1 order by p.id desc",
 				Partita.class);
 		query.setParameter(1, username);
 		return query.getResultList();
-	}
-
-	public long getRating(String username) {
-		Utente utente = em.find(Utente.class, username);
-		return utente.getRating();
 	}
 
 	public long stampaNumeroPartiteGiocate(String username) {
@@ -292,7 +289,9 @@ public class Service {
 		}
 		return contatore;
 	}
-
+	public Utente stampaUtente(String username) {
+		 return em.find(Utente.class, username);
+	}
 	public String stampaEmailUtente(String email) {
 		Query query = em.createQuery("select u.username from Utente u where u.email = ?1");
 		query.setParameter(1, email);

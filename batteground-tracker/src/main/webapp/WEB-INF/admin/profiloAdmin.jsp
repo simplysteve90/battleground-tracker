@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="static/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/style.css">
 <meta charset="UTF-8">
 <title>Admin</title>
 </head>

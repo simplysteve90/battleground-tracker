@@ -25,6 +25,6 @@ public class ModificaUtente extends HttpServlet{
 		String username = req.getParameter("username");
 		service.eliminaUtente(username);
 		req.setAttribute("listaUtenti", service.stampaListaUtenti());
-		req.getRequestDispatcher("/listaUtenti.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/admin/listaUtenti.jsp").forward(req, resp);
 	}
 }

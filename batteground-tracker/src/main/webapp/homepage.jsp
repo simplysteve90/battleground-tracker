@@ -20,7 +20,7 @@
 						<a class="navbar-brand" href="profiloUtente.jsp">Home</a>
 					</div>
 					<div class="col-sm">
-					ciao</div>
+					</div>
 					<div class="col-sm" align="right">
 						<form action="accesso" method="post">
 							<input type="text" name="username" required="required"

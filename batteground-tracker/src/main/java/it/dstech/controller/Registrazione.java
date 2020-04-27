@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.dstech.validation.EmailUtility;
+import it.dstech.cryptography.Utility;
 import it.dstech.service.Service;
 
 @WebServlet(urlPatterns = "/registrazione")
 public class Registrazione extends HttpServlet {
+	private static final String CHIAVE = "Mary has one cat";
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/homepage").forward(req, resp);
@@ -23,7 +25,7 @@ public class Registrazione extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username");
-		String password = req.getParameter("password");
+		String password = Utility.encrypt(req.getParameter("password") ,CHIAVE );
 		String email = req.getParameter("email");
 		long rating = Long.parseLong(req.getParameter("rating"));
 		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");

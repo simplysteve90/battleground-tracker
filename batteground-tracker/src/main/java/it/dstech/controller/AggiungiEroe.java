@@ -36,10 +36,10 @@ public class AggiungiEroe extends HttpServlet {
 			service.aggiungiEroe(nome, immagine, heroPower, costo, descrizione);
 			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.setAttribute("messaggio", "Eroe aggiunto");
-			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/aggiungiEroe.jsp").forward(req, resp);
 		} else {
 			req.setAttribute("messaggio", "Eroe gia esistente");
-			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/aggiungiEroe.jsp").forward(req, resp);
 		}
 	}
 }

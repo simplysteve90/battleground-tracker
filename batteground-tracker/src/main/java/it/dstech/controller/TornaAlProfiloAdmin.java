@@ -16,6 +16,6 @@ public class TornaAlProfiloAdmin extends HttpServlet {
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	req.getRequestDispatcher("/profiloAdmin.jsp").forward(req, resp);
+	req.getRequestDispatcher("/WEB-INF/admin/profiloAdmin.jsp").forward(req, resp);
 	}
 }

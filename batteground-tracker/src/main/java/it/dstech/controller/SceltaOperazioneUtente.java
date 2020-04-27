@@ -44,6 +44,7 @@ public class SceltaOperazioneUtente extends HttpServlet {
 			break;
 		}
 		case 3: {
+			req.setAttribute("utente", service.stampaUtente(username));
 			req.setAttribute("listaEroi", service.stampaListaEroi());
 			req.getRequestDispatcher("/statistichePartite.jsp").forward(req, resp);
 			break;

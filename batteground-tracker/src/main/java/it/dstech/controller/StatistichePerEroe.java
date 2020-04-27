@@ -37,6 +37,7 @@ public class StatistichePerEroe extends HttpServlet {
 		long stampaNumeroPartiteGiocateEroe = service.stampaNumeroPartiteGiocateEroe(username, nomeEroe);
 		List<Partita> stampaListaPartitePerEroe = service.stampaListaPartitePerEroe(username, nomeEroe);
 		Map<String, Double> composizionePerEroe = composizionePerEroe(username, nomeEroe, service, stampaListaPartitePerEroe);
+		req.setAttribute("utente", service.stampaUtente(username));
 		req.setAttribute("mappaComposizioneEroe", composizionePerEroe);
 		req.setAttribute("nome", nomeEroe);
 		req.setAttribute("numeroTopFourEroePercentuale",
@@ -57,7 +58,7 @@ public class StatistichePerEroe extends HttpServlet {
 		return 0.0;
 	}
 	public static List<Partita> listaPartitePerComp(long numeroPartite, List<Partita> x){
-		int contatore=0;
+		int contatore = 0;
 				for (Partita partita : x) {
 			
 			if(numeroPartite<=4) {
@@ -72,8 +73,8 @@ public class StatistichePerEroe extends HttpServlet {
 			List<Partita> partita) {
 		Map<String, Double> composizione = new HashMap<>();
 		for (Partita p : partita) {
-			long stampaNumeroPartiteGiocateEroe = service.stampaNumeroPartiteGiocateEroe(username, eroe);
-			double percentualeTopFour = percentualeTopFour(stampaNumeroPartiteGiocateEroe, service.stampaNumeroTopFourComposizione(username, eroe, p.getComposition()));
+			long stampaNumeroPartiteGiocateComposizione = service.stampaNumeroPartiteGiocateComposizione(username, eroe, p.getComposition());
+			double percentualeTopFour = percentualeTopFour(stampaNumeroPartiteGiocateComposizione, service.stampaNumeroTopFourComposizione(username, eroe, p.getComposition()));
 			composizione.put(p.getComposition(), percentualeTopFour);
 		}return composizione;
 	}

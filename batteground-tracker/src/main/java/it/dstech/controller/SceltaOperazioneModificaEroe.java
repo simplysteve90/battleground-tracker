@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import it.dstech.service.Service;
 
 @WebServlet(urlPatterns = "/admin/scelta-modifica")
+@MultipartConfig
 public class SceltaOperazioneModificaEroe extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,13 +31,17 @@ public class SceltaOperazioneModificaEroe extends HttpServlet {
 		switch (action) {
 		case 1: {
 			req.setAttribute("nome", nome);
-			req.getRequestDispatcher("/modificaEroe.jsp").forward(req, resp);
+			req.setAttribute("immagine", req.getParameter("immagine"));
+			req.setAttribute("costo", req.getParameter("costo"));
+			req.setAttribute("power", req.getParameter("power"));
+			req.setAttribute("descrizione", req.getParameter("descrizione"));
+			req.getRequestDispatcher("/WEB-INF/admin/modificaEroe.jsp").forward(req, resp);
 			break;
 		}
 		case 2:{
 			service.eliminaEroe(nome);
 			req.setAttribute("listaEroi", service.stampaListaEroi());
-			req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/listaEroi.jsp").forward(req, resp);
 			break;
 		}
 		} 

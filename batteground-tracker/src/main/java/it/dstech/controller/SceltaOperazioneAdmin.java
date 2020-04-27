@@ -25,27 +25,28 @@ public class SceltaOperazioneAdmin extends HttpServlet {
 		int scelta = Integer.parseInt(req.getParameter("action"));
 		switch (scelta) {
 		case 1:{
-			req.getRequestDispatcher("/aggiungiEroe.jsp").forward(req, resp);
+			req.setAttribute("listaEroi", service.stampaListaEroi());
+			req.getRequestDispatcher("/WEB-INF/admin/aggiungiEroe.jsp").forward(req, resp);
 			break;
 		}
 		case 2:{
 			req.setAttribute("listaEroi", service.stampaListaEroi());
-			req.getRequestDispatcher("/listaEroi.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/listaEroi.jsp").forward(req, resp);
 			break;
 		}
 		case 3:{
 			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
-			req.getRequestDispatcher("/aggiungiComposizione.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/aggiungiComposizione.jsp").forward(req, resp);
 			break;
 		}
 		case 4:{
 			req.setAttribute("listaComposizioni", service.stampaListaComposizioni());
-			req.getRequestDispatcher("/listaComposizioni.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/listaComposizioni.jsp").forward(req, resp);
 			break;
 		}
 		case 5:{
 			req.setAttribute("listaUtenti", service.stampaListaUtenti());
-			req.getRequestDispatcher("/listaUtenti.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/admin/listaUtenti.jsp").forward(req, resp);
 			break;
 		}
 		case 6:{
